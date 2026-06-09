@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio - HunterGreen Landscaping | Before & After Projects</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #66bb6a;
+      --primary-dark: #1b5e20;
+      --text-dark: #1a1a1a;
+      --text-light: #555;
+      --border: #e0e0e0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #333; }
+
+    /* Header */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .phone-link {
+      background: var(--primary);
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .phone-link:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { gap: 16px; }
+      .phone-link { display: none; }
+      .mobile-menu-btn { display: block; }
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+    h1 { color: #1b5e20; margin: 40px 0 20px; font-size: 2.5rem; }
+    h2 { color: #2e7d32; margin: 30px 0 15px; font-size: 1.8rem; }
+    p { margin: 15px 0; line-height: 1.6; color: #666; }
+
+    /* Slider */
+    .slider-section { margin: 60px 0; }
+    .slider-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 6px;
+      height: 100%;
+      background: white;
+      cursor: ew-resize;
+      z-index: 10;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .slider-label {
+      position: absolute;
+      top: 15px;
+      padding: 8px 16px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 6px;
+      z-index: 5;
+    }
+
+    .slider-label.before { left: 15px; }
+    .slider-label.after { right: 15px; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+    .project-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .project-card:hover { transform: scale(1.05); }
+    .project-card h3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      color: white;
+      padding: 30px 15px 15px;
+      margin: 0;
+      font-size: 1.1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">🌿</div>
+        <span>HunterGreen</span>
+      </div>
+      <ul>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#testimonials">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a href="tel:908-670-6795" class="phone-link">📞 (908) 670-6795</a>
+      <button class="mobile-menu-btn">☰</button>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1>🌿 Portfolio</h1>
+  <p>HunterGreen Landscaping - Real Before & After Projects</p>
+
+  <div class="slider-section">
+    <h2 id="projectTitle">Featured Project: Paver Walkway & Borders</h2>
+    <p id="projectDesc">Drag the slider to compare before and after</p>
+
+    <div class="slider-container">
+      <div class="slider" id="slider1" style="background-image: url('images/project-1-before.png');">
+        <img id="sliderAfter" src="images/project-1-after.png" style="clip-path: inset(0 50% 0 0);"/>
+        <div class="slider-handle" id="handle1"></div>
+        <div class="slider-label before">Before</div>
+        <div class="slider-label after">After</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>All Projects</h2>
+  <p>Click any project to view its before & after slider</p>
+
+  <div class="gallery">
+    <div class="project-card" id="proj-1" style="background-image: url('images/project-1-after.png');" onclick="switchProject(1)">
+      <h3>🏗️ Paver Walkway</h3>
+    </div>
+    <div class="project-card" id="proj-2" style="background-image: url('images/project-2-after.png');" onclick="switchProject(2)">
+      <h3>🌳 Property Clearing</h3>
+    </div>
+    <div class="project-card" id="proj-3" style="background-image: url('images/project-3-after.png');" onclick="switchProject(3)">
+      <h3>🏡 Residential Redesign</h3>
+    </div>
+    <div class="project-card" id="proj-4" style="background-image: url('images/project-4-after.png');" onclick="switchProject(4)">
+      <h3>💡 Landscape Lighting</h3>
+    </div>
+    <div class="project-card" id="proj-5" style="background-image: url('images/project-5-after.png');" onclick="switchProject(5)">
+      <h3>🌿 Hedge Screening</h3>
+    </div>
+    <div class="project-card" id="proj-6" style="background-image: url('images/project-6-after.png');" onclick="switchProject(6)">
+      <h3>✨ Curb Appeal</h3>
+    </div>
+  </div>
+
+  <!-- Social Media Section -->
+  <section id="social-media" style="margin-top: 80px; padding: 60px 0; border-top: 2px solid #e0e0e0;">
+    <h2>Follow HunterGreen</h2>
+    <p>Stay updated with our latest projects and landscaping tips</p>
+
+    <div style="display: flex; gap: 20px; margin: 30px 0; justify-content: center; flex-wrap: wrap;">
+      <a href="https://www.instagram.com/huntergreenlandscaping/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.3s ease;">
+        📷 Instagram @huntergreenlandscaping
+      </a>
+      <a href="https://www.facebook.com/huntergreenlandscaping/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #1877F2; color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.3s ease;">
+        f Facebook
+      </a>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center;">
+      <h3 style="color: #2e7d32; margin-bottom: 20px;">Latest Updates</h3>
+      <p style="color: #666; max-width: 600px; margin: 0 auto;">Follow us on Instagram to see before & after transformations, seasonal landscaping tips, and new projects as we complete them. We post regularly with behind-the-scenes content of our landscaping work in Monmouth County, NJ.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Project data - globally accessible
+  const projectData = {
+    1: { title: '🏗️ Paver Walkway & Borders', desc: 'Professional hardscape transformation with paver installation and landscape borders' },
+    2: { title: '🌳 Large Property Clearing', desc: 'Complete property clearing with debris removal and site preparation' },
+    3: { title: '🏡 Full Residential Redesign', desc: 'Complete yard transformation with quality landscaping and design' },
+    4: { title: '💡 Outdoor Landscape Lighting', desc: 'Professional accent and ambient landscape lighting installation' },
+    5: { title: '🌿 Hedge & Privacy Screening', desc: 'Expert hedge trimming and strategic privacy plantings' },
+    6: { title: '✨ Foundation & Curb Appeal', desc: 'Foundation planting and seasonal landscaping for instant curb appeal' }
+  };
+
+  // Global switch function
+  function switchProject(num) {
+    const slider = document.getElementById('slider1');
+    const afterImg = document.getElementById('sliderAfter');
+    const handle = document.getElementById('handle1');
+    const title = document.getElementById('projectTitle');
+    const desc = document.getElementById('projectDesc');
+
+    // Projects 1 and 6 have swapped before/after
+    if (num === 1 || num === 6) {
+      slider.style.backgroundImage = `url('images/project-${num}-after.png')`;
+      afterImg.src = `images/project-${num}-before.png`;
+    } else {
+      slider.style.backgroundImage = `url('images/project-${num}-before.png')`;
+      afterImg.src = `images/project-${num}-after.png`;
+    }
+
+    title.textContent = 'Featured Project: ' + projectData[num].title;
+    desc.textContent = projectData[num].desc;
+
+    handle.style.left = '50%';
+    afterImg.style.clipPath = 'inset(0 50% 0 0)';
+
+    // Update URL without reloading page
+    window.history.pushState({project: num}, '', `#project-${num}`);
+  }
+
+  // Slider initialization
+  let isDragging = false;
+
+  function initSlider() {
+    const slider = document.getElementById('slider1');
+    const handle = document.getElementById('handle1');
+    const afterImg = document.getElementById('sliderAfter');
+
+    function updateSlider(e) {
+      if (!isDragging) return;
+      const rect = slider.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      if (e.touches) x = e.touches[0].clientX - rect.left;
+      x = Math.max(0, Math.min(x, rect.width));
+      const percent = (x / rect.width) * 100;
+      handle.style.left = percent + '%';
+      afterImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    }
+
+    handle.addEventListener('mousedown', () => { isDragging = true; });
+    handle.addEventListener('touchstart', () => { isDragging = true; });
+    document.addEventListener('mouseup', () => { isDragging = false; });
+    document.addEventListener('touchend', () => { isDragging = false; });
+    document.addEventListener('mousemove', updateSlider);
+    document.addEventListener('touchmove', updateSlider);
+  }
+
+  window.addEventListener('load', function() {
+    initSlider();
+
+    // Check if URL has a project hash (e.g., #project-3)
+    const hash = window.location.hash;
+    if (hash.startsWith('#project-')) {
+      const projectNum = parseInt(hash.split('-')[1]);
+      if (projectNum >= 1 && projectNum <= 6) {
+        switchProject(projectNum);
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
